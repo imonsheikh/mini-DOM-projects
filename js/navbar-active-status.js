@@ -34,16 +34,32 @@ const ulTag = document.getElementById('nav-container')
 // const listItems = ulTag.getElementsByTagName('li')
             // ======  OR ========
 const listItems2 = document.getElementsByTagName('li')
-
 // console.log(ulTag, listItems, listItems2);
 
+
+let lastClicked = null;
 for(const singleItem of listItems2){
     singleItem.addEventListener('click', function(){
         // console.log(singleItem.innerText);
         // console.log(singleItem);
+       if(lastClicked == null){
+            // Style Purpose
+            // লাল হইতে দিব
         singleItem.style.backgroundColor = 'red'
         singleItem.style.color = 'white'
+        lastClicked = singleItem
+        
+       }else{
+          lastClicked.style.backgroundColor = 'transparent'
+          lastClicked.style.color = '#eee'
+
+            singleItem.style.backgroundColor = 'red'
+            singleItem.style.color = 'white'
+            lastClicked = singleItem
+
+       }
         
         
     })
 }
+
